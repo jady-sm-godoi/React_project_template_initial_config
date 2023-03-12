@@ -1,35 +1,22 @@
-import { useState } from 'react';
-import { useFetch } from './hooks/useFetch';
-
 function App() {
-  const [postId, setPostId] = useState('');
-  const [result, loading] = useFetch('https://jsonplaceholder.typicode.com/posts/' + postId);
-
-  const handleClick = (id) => {
-    setPostId(id);
-  };
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (!loading && result) {
-    return (
-      <div>
-        {result?.length > 0 ? (
-          result.map((r) => (
-            <h2 key={r.id} onClick={() => handleClick(r.id)}>
-              {r.title}
-            </h2>
-          ))
-        ) : (
-          <h2 onClick={() => handleClick('')}>{result.title}</h2>
-        )}
-      </div>
-    );
-  }
-
-  return <h1>Oi</h1>;
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
